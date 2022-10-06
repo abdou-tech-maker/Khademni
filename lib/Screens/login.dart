@@ -37,6 +37,7 @@ class _LoginState extends State<Login> {
             onPressed: () async {
               final prefs = await SharedPreferences.getInstance();
               prefs.setBool('showHome', false);
+              // ignore: use_build_context_synchronously
               Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => const Welcome()));
             },
@@ -99,6 +100,9 @@ class _LoginState extends State<Login> {
                 ),
                 obscureText: hidePassword ? true : false,
               ),
+              const SizedBox(
+                height: 20,
+              ),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -107,6 +111,9 @@ class _LoginState extends State<Login> {
                       'Forgot Password ?',
                       style: TextStyle(color: Color.fromARGB(255, 3, 93, 153)),
                     )),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               ElevatedButton(
                   onPressed: () {},
@@ -142,6 +149,9 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 10,
+                )
               ]),
               TextButton(
                 onPressed: () {
