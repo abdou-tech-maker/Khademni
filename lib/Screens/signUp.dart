@@ -1,3 +1,7 @@
+// ignore: file_names
+// ignore: file_names
+// ignore_for_file: unused_import, unused_local_variable
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:khademni/Screens/Home.dart';
@@ -37,10 +41,7 @@ class _signupState extends State<Signup> {
         backgroundColor: const Color(0xFF009688),
         elevation: 0.5,
       ),
-      body: /*isCompleted
-          ? buildCompleted()
-          : */
-          Theme(
+      body: Theme(
         data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.light(
                 primary: Color.fromARGB(255, 216, 56, 56))),
@@ -81,57 +82,47 @@ class _signupState extends State<Signup> {
             }
           },
           controlsBuilder: (BuildContext context, ControlsDetails details) {
-            return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: ElevatedButton(
-                        onPressed: details.onStepContinue,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 216, 56, 56),
-                          fixedSize: Size(size.width * 0.1, 50),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)),
-                        ),
-                        child: Text(
-                          isLastStep ? 'Confirm ' : 'Next',
-                          style: const TextStyle(fontSize: 18),
-                        )),
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: ElevatedButton(
+                            onPressed: details.onStepContinue,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 216, 56, 56),
+                              fixedSize: Size(size.width * 0.1, 50),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                            ),
+                            child: Text(
+                              isLastStep ? 'Confirm ' : 'Next',
+                              style: const TextStyle(fontSize: 18),
+                            )),
+                      ),
+                      if (currentStep != 0)
+                        ElevatedButton(
+                            onPressed: details.onStepCancel,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 216, 56, 56),
+                              fixedSize: Size(size.width * 0.1, 50),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                            ),
+                            child: const Text(
+                              'Back ',
+                              style: TextStyle(fontSize: 18),
+                            )),
+                    ],
                   ),
-                  if (currentStep != 0)
-                    ElevatedButton(
-                        onPressed: details.onStepCancel,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 216, 56, 56),
-                          fixedSize: Size(size.width * 0.1, 50),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)),
-                        ),
-                        child: const Text(
-                          'Back ',
-                          style: TextStyle(fontSize: 18),
-                        )),
-                  if (isLastStep)
-                    ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 216, 56, 56),
-                          fixedSize: Size(size.width * 0.1, 50),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)),
-                        ),
-                        child: const Text(
-                          'Finish ',
-                          style: TextStyle(fontSize: 18),
-                        )),
-                ],
-              ),
+                ),
+              ],
             );
           },
         ),
