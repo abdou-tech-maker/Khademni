@@ -96,7 +96,7 @@ class _signupState extends State<Signup> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
                                   const Color.fromARGB(255, 216, 56, 56),
-                              fixedSize: Size(size.width * 0.1, 50),
+                              fixedSize: Size(size.width * 0.2, 50),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50)),
                             ),
@@ -111,7 +111,7 @@ class _signupState extends State<Signup> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
                                   const Color.fromARGB(255, 216, 56, 56),
-                              fixedSize: Size(size.width * 0.1, 50),
+                              fixedSize: Size(size.width * 0.2, 50),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50)),
                             ),

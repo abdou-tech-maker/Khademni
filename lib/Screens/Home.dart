@@ -93,12 +93,12 @@ class NavigationDrawer extends StatelessWidget {
             title: const Text('Home'),
             onTap: () {},
           ),
-          ListTile(
+          /* ListTile(
             shape: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
             leading: const Icon(Icons.home_outlined),
             title: const Text('Home'),
             onTap: () {},
-          ),
+          ),*/
           const Divider(
             color: Colors.black,
             thickness: 0.5,
