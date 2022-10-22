@@ -1,12 +1,12 @@
-// ignore: file_names
-// ignore: file_names
-// ignore_for_file: unused_import, unused_local_variable
+// ignore_for_file: unused_import, unused_local_variable, file_names
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 import 'package:khademni/Screens/Home.dart';
-import 'package:khademni/accountPage.dart';
 import 'package:khademni/Screens/login.dart';
+import 'package:khademni/accountPage.dart';
 
 import '../buildCompeleted.dart';
 
@@ -20,7 +20,7 @@ class Signup extends StatefulWidget {
 // ignore: camel_case_types
 class _signupState extends State<Signup> {
   int currentStep = 0;
-  final email = TextEditingController();
+  final inputDate = TextEditingController();
   final password = TextEditingController();
   final confirmPassword = TextEditingController();
   final firstName = TextEditingController();
@@ -31,6 +31,7 @@ class _signupState extends State<Signup> {
     final size = MediaQuery.of(context).size;
     final bool isLastStep = currentStep == getSteps().length - 1;
     bool isCompleted = false;
+    
     return Scaffold(
       backgroundColor: const Color(0xFDEDDBC3),
       appBar: AppBar(
@@ -146,14 +147,41 @@ class _signupState extends State<Signup> {
             title: const Text(' Additional Info'),
             content: Column(
               children: [
+                MaterialButton(
+                  onPressed: () {},
+                ),
                 TextFormField(
-                  controller: email,
+                  controller: inputDate,
                   decoration: InputDecoration(
+                    icon: const Icon(Icons.calendar_today),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    labelText: 'Adress *',
-                    hintText: 'Enter your Adress',
+                    labelText: 'Date Of Birth *',
+                    hintText: 'Enter your BirthDay',
                   ),
+                  readOnly: true,
+                  onTap: () async {
+                    DateTime? pickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1950),
+                        lastDate: DateTime(2100));
+
+                    if (pickedDate != null) {
+                      // ignore: avoid_print
+                      print(
+                          pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                      String formattedDate =
+                          DateFormat('yyyy-MM-dd').format(pickedDate);
+                      // ignore: avoid_print
+                      print(
+                          formattedDate); //formatted date output using intl package =>  2021-03-16
+                      setState(() {
+                        inputDate.text =
+                            formattedDate; //set output date to TextField value.
+                      });
+                    } else {}
+                  },
                 ),
                 const SizedBox(
                   height: 20,
@@ -163,8 +191,8 @@ class _signupState extends State<Signup> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    labelText: 'Password *',
-                    hintText: 'Enter your Password',
+                    labelText: 'Phone Number *',
+                    hintText: 'Enter your Number',
                   ),
                 ),
                 const SizedBox(
