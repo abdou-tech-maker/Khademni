@@ -1,6 +1,10 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
-class buildCompleted extends StatelessWidget {
+class BuildCompleted extends StatelessWidget {
+  const BuildCompleted({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

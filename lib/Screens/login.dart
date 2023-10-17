@@ -162,7 +162,7 @@ class _LoginState extends State<Login> {
                 child: Text.rich(
                   TextSpan(
                     text: 'Don\'t have an Account ? ',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                     children: const [
                       TextSpan(
                           text: 'Sign Up  ',

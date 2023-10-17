@@ -1,8 +1,11 @@
-// ignore: file_names
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 //Account Page In Signup Form
-class accountPage extends StatelessWidget {
+class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final email = TextEditingController();

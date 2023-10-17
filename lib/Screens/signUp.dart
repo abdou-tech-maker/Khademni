@@ -1,9 +1,8 @@
-// ignore_for_file: unused_import, unused_local_variable, file_names
+// ignore_for_file: unused_import, unused_local_variable, file_names, depend_on_referenced_packages
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'package:khademni/Screens/Home.dart';
 import 'package:khademni/Screens/login.dart';
 import 'package:khademni/accountPage.dart';
@@ -31,7 +30,7 @@ class _signupState extends State<Signup> {
     final size = MediaQuery.of(context).size;
     final bool isLastStep = currentStep == getSteps().length - 1;
     bool isCompleted = false;
-    
+
     return Scaffold(
       backgroundColor: const Color(0xFDEDDBC3),
       appBar: AppBar(
@@ -136,9 +135,9 @@ class _signupState extends State<Signup> {
             state: currentStep > 0 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 0,
             title: const Text('Account'),
-            content: Column(
+            content: const Column(
               children: [
-                accountPage(),
+                AccountPage(),
               ],
             )),
         Step(
@@ -213,9 +212,9 @@ class _signupState extends State<Signup> {
           state: currentStep > 2 ? StepState.complete : StepState.indexed,
           isActive: currentStep >= 2,
           title: const Text('Complete'),
-          content: Column(children: [
+          content: const Column(children: [
             Row(
-              children: const [
+              children: [
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(border: OutlineInputBorder()),

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -46,8 +48,8 @@ class NavigationDrawer extends StatelessWidget {
         onTap: () {},
         child: Container(
           padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-          child: Column(
-            children: const [
+          child: const Column(
+            children: [
               CircleAvatar(
                 radius: 52,
                 backgroundImage: NetworkImage(
@@ -93,7 +95,6 @@ class NavigationDrawer extends StatelessWidget {
             title: const Text('Home'),
             onTap: () {},
           ),
-         
           const Divider(
             color: Colors.black,
             thickness: 0.5,
